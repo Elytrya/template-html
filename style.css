@@ -1,0 +1,406 @@
+#linkdiscord {
+    padding: 15px 30px;
+    background-color: #593342; /* Розовый */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin: 20px;
+}
+
+#linkdiscord:hover{
+    background-color: rgb(107, 33, 62); /* Темно-розовый */
+}
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Черный */
+            color: #ffffff; /* Белый */
+            transition: background-color 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        /* Стили для навигационного меню */
+        .navigation {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.5s ease;
+        }
+
+        .logo {
+            font-family: ShadowManager, sans-serif;
+            font-size: 24px;
+            margin-left: 20px;
+            color: #e91e63; /* Розовый */
+        }
+
+        .menu {
+            margin-right: auto; /* Выравнивание по правому краю */
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+
+        .login {
+            font-weight: bold;
+            margin-right: 20px;
+            cursor: pointer;
+            color: #ce1d58; /* Розовый */
+        }
+
+        /* Стили для главного содержимого */
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Изменено на flex-start */
+            padding: 100px;
+        }
+
+        .content-left {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .content-left h1 {
+            font-family: ShadowManager, sans-serif;
+            font-size: 48px;
+            color: #e91e63; /* Розовый */
+        }
+
+        .content-left p {
+            margin-bottom: 20px;
+        }
+
+        #addServerBtn {
+            padding: 15px 30px;
+            background-color: #e91e63; /* Розовый */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        #addServerBtn:hover{
+            background-color: #c2185b; /* Темно-розовый */
+        }
+
+        .content-right img {
+            max-width: 100%;
+            width: 300px;
+            height: auto;
+            animation: floating 2s infinite alternate;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Стили для круглой кнопки */
+        #backgroundButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent;
+            color: #4CAF50; /* Цвет текста */
+            border: 2px solid #4CAF50; /* Рамка */
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 999;
+            transition: all 0.3s ease;
+            border-radius: 30px; /* Более круглые углы */
+            font-family: Arial, sans-serif; /* Шрифт */
+        }
+    
+        #backgroundButton:hover {
+            background-color: #4CAF50; /* Цвет фона при наведении */
+            color: white; /* Цвет текста при наведении */
+        }
+        /* Стили для блоков особенностей */
+        .features {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Добавлено пространство между особенностями */
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .features.active {
+            opacity: 1;
+        }
+
+        .feature {
+            padding: 20px;
+            background-color: #2c2c2c; /* Темно-серый */
+            border-radius: 10px;
+            display: flex;
+            width: 12000px;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.5s ease; /* Добавлено анимация для плавности */
+            transform: translateY(50px); /* Изначально смещаем особенности вниз */
+        }
+
+        .feature img {
+            max-width: 300px; /* Ширина изображения */
+            margin-right: 20px; /* Отступ между изображением и текстом */
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature.active {
+            transform: translateY(0); /* При активации особенности сдвигаем вверх */
+        }
+
+        .feature h2 {
+            font-size: 24px;
+            color: #e91e63; /* Розовый */
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: white;
+        }
+
+        /* Дополнительные стили для светлой темы */
+        body.light {
+            background-color: #efdae5;
+            color: #666;
+        }
+
+        .navigation.light {
+            background-color: rgba(248, 240, 244, 0.5);
+            color: black;
+        }
+
+        .login.light {
+            color: #ce1d58;
+        }
+
+        .feature.light {
+            background-color: #b8b5b5; /* Серый */
+            color: #333; /* Темно-серый */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Черный */
+            color: #ffffff; /* Белый */
+            transition: background-color 0.5s ease;
+            overflow-x: hidden;
+        }
+        
+/* Стили для блоков особенностей */
+.features {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос строк для блоков особенностей */
+    justify-content: center; /* Выравниваем блоки по центру */
+    gap: 20px; /* Добавлено пространство между особенностями */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.features.active {
+    opacity: 1;
+}
+
+.feature {
+    width: 1500px; /* Ширина блока особенности */
+    padding: 20px;
+    background-color: #2c2c2c; /* Темно-серый */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Располагаем контент вертикально */
+    align-items: center; /* Выравниваем контент по центру */
+    transition: transform 0.5s ease; /* Добавлено анимация для плавности */
+    transform: translateY(50px); /* Изначально смещаем особенности вниз */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+}
+
+.feature img {
+    max-width: 100%; /* Ширина изображения */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.feature-content {
+    text-align: center; /* Выравниваем текст по центру */
+}
+
+.feature.active {
+    transform: translateY(0); /* При активации особенности сдвигаем вверх */
+}
+
+.feature h2 {
+    font-size: 24px;
+    color: #e91e63; /* Розовый */
+    margin-bottom: 10px;
+}
+.feature.light {
+    background-color: #eac1cf; /* Цвет фона для светлой темы */
+    color: white; /* Цвет текста для светлой темы */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+}
+.feature p {
+    color: white;
+    margin-bottom: 20px; /* Отступ снизу */
+}
+.additional-info {
+    text-align: center;
+    margin-top: 50px;
+    margin: -20px;
+}
+
+.additional-info p {
+    color: #333; /* Цвет текста */
+    font-size: 24px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.discord-link {
+    color: #e91e63; /* Цвет ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 20px; /* Размер шрифта */
+    font-weight: bold; /* Жирный шрифт */
+    transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.discord-link:hover {
+    color: #c2185b; /* Цвет ссылки при наведении */
+}
+
+/* Стили для текста в самом конце */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer p {
+    color: #666; /* Серый цвет */
+    margin-bottom: 5px;
+}
+
+.footer p:last-child {
+    margin-bottom: 0;
+}
+.cookie-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease; /* добавлен переход для плавного изменения прозрачности */
+}
+
+.cookie-content {
+    text-align: center;
+}
+
+.cookie-content a {
+    color: #e91e63;
+    text-decoration: underline;
+}
+
+#closeCookiePopup {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeCookiePopup:hover {
+    background-color: #c2185b;
+}
+/* Стили для кнопки политики конфиденциальности */
+.privacy-policy-btn {
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 1000;
+transition: all 0.3s ease;
+}
+
+.privacy-policy-btn button {
+background-color: #e91e63;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+transition: all 0.3s ease;
+}
+
+.privacy-policy-btn button:hover {
+background-color: #c2185b;
+}
+
+/* Стили для уведомления о политике конфиденциальности */
+.privacy-policy-popup {
+display: none; /* Изначально скрыть блок */
+position: fixed;
+bottom: 60px;
+right: 20px;
+background-color: rgba(0, 0, 0, 0.8);
+color: white;
+padding: 20px;
+border-radius: 10px;
+z-index: 1000;
+opacity: 0;
+transition: opacity 0.5s ease;
+}
+
+.privacy-policy-content {
+text-align: center;
+}
+
+.privacy-policy-content a {
+color: #e91e63;
+text-decoration: underline;
+}
+
+#closePrivacyPolicyPopup {
+background-color: #e91e63;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+transition: background-color 0.3s ease;
+}
+
+#closePrivacyPolicyPopup:hover {
+background-color: #c2185b;
+}

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarivetryProject</title>
+    <!-- Yandex.Metrika counter -->
+  <script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+    ym(96498309, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/96498309" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Приближенный к белому цвет фона */
+            color: #333; /* Цвет текста */
+            font-size: 22px; /* Увеличил размер шрифта для всего текста */
+        }
+
+        .navigate {
+            color: white;
+            text-align: left;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #FFC107;
+            margin-right: 10px;
+        }
+
+        .navigate a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .navigate a:hover {
+            color: #673AB7;
+        }
+
+        .navigate a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #673AB7;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            transform-origin: 0 0;
+        }
+
+        .navigate a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .main-text {
+            margin-left: 200px;
+            font-size: 80px; /* Увеличил размер основного текста */
+            margin-top: 50px;
+        }
+
+        .highlight-text {
+            color: #673AB7; /* Изменение цвета выделенного слова */
+        }
+
+        .desc-text {
+            margin-left: 200px;
+            font-size: 45px; /* Увеличил размер текста */
+            margin-top: 50px;
+        }
+
+
+/* Стиль для фиолетовой кнопки-ссылки */
+.button-purple {
+    background-color: #8A2BE2;
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 200px;
+    font-size: 24px;
+    border-radius: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  /* Стиль для кнопки-ссылки с оттенком белого */
+  .button-white {
+    background-color: #dbdbdc;
+    border: none;
+    color: black;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+/* Стили для обертки презентации */
+.presentation {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  /* Стили для заголовка */
+  .presentation h1 {
+    font-size: 36px;
+    color: #8A2BE2;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Стили для особенностей */
+  .features {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    margin: 50px;
+  }
+  
+  .feature {
+    flex-basis: 30%;
+    padding: 20px;
+    background-color: #F8F8FF;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .feature h2 {
+    font-size: 24px;
+    color: #8A2BE2;
+    margin-bottom: 10px;
+  }
+  
+  .feature p {
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.5em;
+  }
+  /* Стили для модального окна */
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.5); 
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 20% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+  }
+  
+  .modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .modal-close:hover,
+  .modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Анимация появления модального окна */
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  .fade-in { 
+    animation: fadeIn 0.5s;
+  }
+  
+  /* Стили для уведомления о файлах cookie */
+  .cookie-notification {
+     position: fixed;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     background-color: #fefefe;
+     color: white;
+     padding: 10px;
+     text-align: center;
+  }
+  /* Стили для блока внизу страницы */
+.bottom-block {
+    background-color: #fefefe;
+    color: rgb(0, 0, 0);
+    padding: 40px;
+    text-align: center;
+    border-radius: 20px;
+  }
+  
+  .bottom-block h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .bottom-block .buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .bottom-block .buttons .button {
+    background-color: #8A2BE2;
+    border: none;
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  /* Стили для строки "Design by" */
+.design-by {
+    text-align: center;
+    background-color: #fefefe;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+  }
+  
+  .design-by a {
+    color: #8A2BE2;
+    text-decoration: none;
+  }
+  
+  .design-by span {
+    color: #8A2BE2;
+    font-weight: bold;
+  }
+  .cookie-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease; /* добавлен переход для плавного изменения прозрачности */
+}
+
+.cookie-content {
+    text-align: center;
+}
+
+.cookie-content a {
+    color: #8A2BE2;
+    text-decoration: underline;
+}
+
+#closeCookiePopup {
+    background-color: #8A2BE2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#closeCookiePopup:hover {
+    background-color: #8A2BE2;
+}
+/* Стили для кнопки политики конфиденциальности */
+.privacy-policy-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  }
+  
+  .privacy-policy-btn button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  }
+  
+  .privacy-policy-btn button:hover {
+  background-color: #c2185b;
+  }
+  
+  /* Стили для уведомления о политике конфиденциальности */
+  .privacy-policy-popup {
+  display: none; /* Изначально скрыть блок */
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  }
+  
+  .privacy-policy-content {
+  text-align: center;
+  }
+  
+  .privacy-policy-content a {
+  color: #8A2BE2;
+  text-decoration: underline;
+  }
+  
+  #closePrivacyPolicyPopup {
+  background-color: #8A2BE2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  }
+  
+  #closePrivacyPolicyPopup:hover {
+  background-color: #8A2BE2;
+  }
+    </style>
+</head>
+<body>
+    <div class="navigate">
+        <img class="logo" src="https://shapka-youtube.ru/wp-content/uploads/2021/02/prikolnaya-avatarka-dlya-patsanov.jpg" alt="Нам не удается загрузить изображение.">
+        <a href="https://discord.gg/KcyvfKDwKt">Дискорд сервер</a>
+        <a href="https://docs.shadowmanager.space/">Документация</a>
+        <a href="https://status.shadowmanager.space/">Uptime серверов</a>
+    </div>  
+    <h1 class="main-text">Мощный <span class="highlight-text">инструмент</span> для вашего сервера</h1>
+    <p class="desc-text">бот — многофункциональный бот, предназначенный для улучшения и защиты вашего сервера Discord.</p>
+    <a href="#" class="button-purple">Зайти на сервер</a>
+    <a href="#" class="button-white">Подробнее</a>
+
+    <div class="features">
+        <div class="feature">
+          <h2>Система уровней</h2>
+          <p>Накрутка, вывод топа по уровням, отключайте, настраивайте. И это все система уровней!</p>
+        </div>
+        
+        <div class="feature">
+          <h2>RolePlay</h2>
+          <p>Отыгрывайте RolePlay на ваших любимых серверах!</p>
+        </div>
+        
+        <div class="feature">
+          <h2>Модерация</h2>
+          <p>Модерируйте, баньте, кикайте, варните, мутьте, настраивайте автоприветствие, автопрощание, автороли, и еще очень много всего!</p>
+        </div>
+        
+
+      </div>
+    </div>
+           
+
+
+      <div class="design-by">
+        Design by <a href="https://akitiltka.space" target="_blank"><span>akirula</span></a> <a href="#" target="_blank"><span></span></a>
+      </div>
+      <div class="cookie-popup" id="cookiePopup">
+        <div class="cookie-content">
+            <p>Мы используем файлы cookie для улучшения вашего опыта. <a href="cookie.html">Узнать больше</a>.</p>
+            <button id="closeCookiePopup">Принять</button>
+        </div>
+        <!-- Блок с окном политики конфиденциальности -->
+        <div class="privacy-policy-popup" id="privacyPolicyPopup">
+            <div class="privacy-policy-content">
+                <p>Прежде чем продолжить, пожалуйста, <a href="privacypolicy.html">ознакомьтесь с нашей политикой конфиденциальности</a>.</p>
+                <button id="closePrivacyPolicyPopup">Принять</button>
+            </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const cookiePopup = document.getElementById('cookiePopup');
+        const closeCookiePopup = document.getElementById('closeCookiePopup');
+        const privacyPolicyPopup = document.getElementById('privacyPolicyPopup');
+        const closePrivacyPolicyPopup = document.getElementById('closePrivacyPolicyPopup');
+        
+        // Показать табличку cookie с плавным появлением
+        setTimeout(function() {
+            cookiePopup.style.opacity = '1';
+        }, 2000); // Появиться через 2 секунды (можно изменить на необходимое время)
+        
+        // Закрыть табличку cookie с плавным исчезновением при нажатии на кнопку "Принять"
+        closeCookiePopup.addEventListener('click', function() {
+            cookiePopup.style.opacity = '0';
+            setTimeout(function() {
+                cookiePopup.style.display = 'none';
+                privacyPolicyPopup.style.display = 'block'; // Показать окно с предложением прочитать политику конфиденциальности
+                privacyPolicyPopup.style.opacity = '1'; // Плавное появление окна
+            }, 500); // Закрыть с задержкой 0.5 секунды (для завершения анимации)
+        });
+        
+        // Закрыть окно с предложением прочитать политику конфиденциальности при нажатии на кнопку "Принять"
+        closePrivacyPolicyPopup.addEventListener('click', function() {
+            privacyPolicyPopup.style.opacity = '0';
+            setTimeout(function() {
+                privacyPolicyPopup.style.display = 'none';
+            }, 500);
+        });
+    
+        // Показать уведомление о политике конфиденциальности после закрытия уведомления о куки-файлах
+        closeCookiePopup.addEventListener('click', function() {
+            privacyPolicyPopup.style.display = 'block';
+        });
+    });
+    
+    </script>
